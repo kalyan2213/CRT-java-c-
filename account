@@ -1,0 +1,58 @@
+class bankAccount
+{
+    private
+    int Accountnumber;
+    double balance;
+    public bankAccount(int Accountnumber,double balance)
+    {
+        this.Accountnumber=Accountnumber;
+        this.balance=balance;
+    }
+        int getAccountnumber(){
+        return Accountnumber;
+        }
+        double getbalance(){
+        return balance;
+}
+
+        
+         public void Deposit(double amount)
+        {
+            if(amount>0)
+            {
+                balance+=amount;
+                System.out.println("Deposited"+amount+".new balance is"+balance);
+                }
+                else
+                {
+                System.out.println("invalid deposit amount");
+            }
+        }
+        public void Withdraw(double amount)
+        {
+            if(amount>0&&amount<=balance)
+            {
+                balance-=amount;
+                System.out.println("withdraw"+amount+".new balance is"+balance);
+            }else{
+                System.out.println("insufficient funds or invalid amount");
+            }
+            }
+            public void displayAccountDetails()
+            {
+            System.out.println("Accountnumber:"+Accountnumber+",Balance:"+balance);
+        }
+}
+public class Main{
+    public static void main(String[] args)
+    {
+        bankAccount account=new bankAccount(1234567,1000);
+        System.out.println("initial account details:");
+        account.displayAccountDetails();
+        account.Deposit(200);
+        account.Withdraw(150);
+        account.Withdraw(2000);
+        System.out.println("final account details:");
+        account.displayAccountDetails();
+    }
+}
